@@ -1,0 +1,156 @@
+*{
+	padding: 0;
+	margin:0;
+	box-sizing: border-box;
+}
+body{
+	width:100%;
+	height:100vh;
+	background-color:#000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container{
+	width:40rem;
+	height:40rem;
+	border: 1px solid black;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container .sun{
+	position: absolute;
+	width: 7rem;
+	height: 7rem;
+	background-color: #ff0;
+	border-radius: 50%;
+	box-shadow: 0 0 4rem #fff,0 0 5rem #fff;
+	
+}
+.mercury{--diameter:10.5;--duration:8.79691;}
+.earth{--diameter:24.5;--duration:36.5;}
+.moon{--diameter:5.6;--duration:2.4;top:0.3rem;right:0.3rem;}
+.venus{--diameter:15.7;--duration:22.4701}
+.mars{--diameter:35;--duration:68.7;}
+.phobos{--diameter:3.9;--duration:0.739;top:2.8rem;right:3.1rem;}
+.deimos{--diameter:4.6;--duration:3.018;top:3.5rem;right:3.5rem;}
+.jupiter{--diameter:45;--duration:432.963;}
+.saturn{--diameter:56;--duration:10731;}
+.uranus{--diameter:65;--duration:8.3747;}
+.neptune{--diameter:75;--duration:16.3}
+.earth,
+.moon,
+.mercury,
+.venus,
+.mars,
+.phobos,
+.deimos,
+.jupiter,
+.saturn,
+.uranus,
+.neptune{
+	position: absolute;
+	width: calc(var(--diameter)*1rem);
+	height: calc(var(--diameter)*1rem);
+	border-radius: 50%;
+	border-style: solid solid none none;
+	border-color: silver transparent transparent transparent;
+	border-width: 0.1rem;
+	animation: move calc(var(--diameter)*1s) linear infinite;
+	}
+@keyframes move{
+	to{
+		transform: rotate(1turn);
+	}
+}
+.mercury::before{
+	--diameter:0.8;
+	--color:#808080;
+	--top:1.12;
+	--right:1.2;
+}
+.venus::before{
+	--diameter:2.85;
+	--color:#D9D919;
+	--top:1.96;
+	--right:0.6;
+	
+}
+.earth::before{
+	--diameter:3;
+	--color:dodgerblue;
+	--top:1.96;
+	--right:1.8;
+	
+}
+.moon::before{
+	--diameter:1;
+	--color:#fff;
+	--top:0.8;
+	--right:0.1;
+	
+}
+.mars::before{
+	--diameter:1.59;
+	--color:#FF4550;
+	--top:4.5;
+	--right:4;
+}
+.phobos::before{
+	--diameter:0.7;
+	--color:#808080;
+	--top:0.5;
+	--right:0.12;
+}
+.deimos::before{
+	--diameter:0.5;
+	--color:#FF7F50;
+	--top:0.5;
+	--right:0.20;
+}
+.jupiter::before{
+	--diameter:5;
+	--color:#FF7F50;
+	--top:4.1;
+	--right:4;
+}
+.saturn::before{
+	--diameter:4.8;
+	--color:#BDB76B;
+	--top:5.5;
+	--right:5.5;
+}
+.uranus::before{
+	--diameter:3.2;
+	--color:#00FFFF;
+	--top:7.7;
+	--right:7.7;
+}
+.neptune::before{
+	--diameter:3.25;
+	--color:#00008B;
+	--top:9.5;
+	--right:9.5;
+}
+.earth::before,
+.moon::before,
+.mercury::before,
+.venus::before,
+.mars::before,
+.phobos::before,
+.deimos::before,
+.jupiter::before,
+.saturn::before,
+.uranus::before,
+.neptune::before{
+	content:"";
+	position: absolute;
+	top: calc(var(--top)*1rem);
+	right: calc(var(--right)*1rem);
+	width: calc(var(--diameter)*1rem);
+	height: calc(var(--diameter)*1rem);
+	background-color: var(--color);
+	border-radius: 50%;
+}
